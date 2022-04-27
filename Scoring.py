@@ -31,11 +31,11 @@ while game_running == True:
         print("Blue scored square.")
 
     if red_data == "triangle":
-        red_score = red_score + 1
+        red_score = red_score + 4
         print("Red scored triangle.")
     elif red_data == "circle":
-        red_score = red_score + 1
+        red_score = red_score + 3
         print("Red scored circle.")
     elif red_data == "square":
-        red_score = red_score + 1
+        red_score = red_score + 2
         print("Red scored square.")
