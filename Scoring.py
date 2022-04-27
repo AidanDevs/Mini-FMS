@@ -18,8 +18,11 @@ while waiting == True:
         game_running = True
         waiting = False
 
-start_time = time.
+start_time = time.time()
 while game_running == True:
+    end_time = time.time()
+    if end_time - start_time >= 120:
+        break
     blue_data = blue_ser.readline()
     red_data = red_ser.readline()
     mid_data = mid_ser.readline()
