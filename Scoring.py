@@ -13,7 +13,7 @@ while waiting == True:
     
     if game_start == "game_time":
         game_running = True
-        game_start = False
+        waiting = False
 
 while game_running == True:
     data = blue_ser.readline()
