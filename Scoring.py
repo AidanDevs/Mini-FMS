@@ -1,10 +1,12 @@
 #This python file will keep track of blue alliance terminal scoring
 #Imports
 import serial
+import time
 
 #Setup our serial connection
-blue_ser = serial.Serial("COM3", 9600, timeout=1)
-red_ser = serial.Serial("COM4", 9600, timeout=1)
+blue_ser = serial.Serial("COM2", 9600, timeout=1)
+red_ser = serial.Serial("COM3", 9600, timeout=1)
+mid_ser = serial.Serial("COM4", 9600, timeout=1)
 
 #Setup our game manager
 waiting = True
@@ -16,9 +18,11 @@ while waiting == True:
         game_running = True
         waiting = False
 
+start_time = time.
 while game_running == True:
     blue_data = blue_ser.readline()
     red_data = red_ser.readline()
+    mid_data = mid_ser.readline()
 
     if blue_data == "triangle":
         blue_score = blue_score + 4
@@ -39,3 +43,9 @@ while game_running == True:
     elif red_data == "square":
         red_score = red_score + 2
         print("Red scored square.")
+
+    if mid_data == "blue_mid":
+        blue_score = blue_score + 1
+        print("Blue scored mid.")
+    elif mid_data == "red_mid":
+        red_score = red_score + 1
