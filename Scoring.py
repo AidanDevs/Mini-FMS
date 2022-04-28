@@ -1,4 +1,4 @@
-#This python file will keep track of blue alliance terminal scoring
+#This python file will keep track of alliance scoring
 #Imports
 import serial
 import time
@@ -90,6 +90,24 @@ if red1_hang == "y" or red1_hang == "Y":
 
 if red2_hang == "y" or red2_hang == "Y":
     red_score = red_score + 10
+
+blue1_taxi = input("Did blue 1 taxi? (y/n): ")
+blue2_taxi = input("Did blue 2 taxi? (y/n): ")
+
+red1_taxi = input("Did red 1 taxi? (y/n): ")
+red2_taxi = input("Did red 2 taxi? (y/n): ")
+
+if blue1_taxi == "y" or blue1_taxi == "Y":
+    blue_score = blue_score + 2
+
+if blue2_taxi == "y" or blue2_taxi == "Y":
+    blue_score = blue_score + 2
+
+if red1_taxi == "y" or red1_taxi == "Y":
+    red_score = red_score + 2
+
+if red2_taxi == "y" or red2_taxi == "Y":
+    red_score = red_score + 2
 
 blue_penalty = int(input("How many penalties did the blue alliance have? "))
 red_penalty = int(input("How many penalties did the red alliance have? "))
