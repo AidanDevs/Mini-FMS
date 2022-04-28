@@ -11,14 +11,25 @@ mid_ser = serial.Serial("COM4", 9600, timeout=1)
 
 #Setup our game manager
 waiting = True
+blue_score = 0
+red_score = 0
 
 while waiting == True:
     game_start = blue_ser.readline()
-    
+
     if game_start == "game_time":
         game_running = True
         waiting = False
 
+print("Countdown starts in 5 seconds.")
+time.sleep(5)
+print("Game start in:")
+print("3")
+time.sleep(1)
+print("2")
+time.sleep(1)
+print("1")
+time.sleep(1)
 game_running = True
 playsound("audio/start.wav")
 start_time = time.time()
@@ -32,7 +43,7 @@ while game_running == True:
 
     blue_data = blue_ser.readline()
     red_data = red_ser.readline()
-    mid_data = mid_ser.readline()
+    mid_data = blue_ser.readline()
 
     if blue_data == "triangle":
         blue_score = blue_score + 4
