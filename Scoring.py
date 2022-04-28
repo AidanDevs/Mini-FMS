@@ -2,6 +2,7 @@
 #Imports
 import serial
 import time
+from playsound import playsound
 
 #Setup our serial connection
 blue_ser = serial.Serial("COM2", 9600, timeout=1)
@@ -18,11 +19,17 @@ while waiting == True:
         game_running = True
         waiting = False
 
+game_running = True
+playsound("audio/start.wav")
 start_time = time.time()
 while game_running == True:
     end_time = time.time()
     if end_time - start_time >= 120:
         break
+    
+    if end_time - start_time >= 90 and end_time - start_time <= 90.1:
+        playsound("audio/resume.wav")
+
     blue_data = blue_ser.readline()
     red_data = red_ser.readline()
     mid_data = mid_ser.readline()
@@ -52,3 +59,5 @@ while game_running == True:
         print("Blue scored mid.")
     elif mid_data == "red_mid":
         red_score = red_score + 1
+
+playsound("audio/end.wav")
