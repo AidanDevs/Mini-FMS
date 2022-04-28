@@ -1,4 +1,4 @@
-#This python file will keep track of blue alliance terminal scoring
+#This python file will keep track of alliance scoring
 #Imports
 import serial
 import time
