@@ -61,3 +61,30 @@ while game_running == True:
         red_score = red_score + 1
 
 playsound("audio/end.wav")
+
+blue1_hang = input("Did blue 1 hang? (y/n): ")
+blue2_hang = input("Did blue 2 hang? (y/n): ")
+
+red1_hang = input("Did red 1 hang? (y/n): ")
+red2_hang = input("Did red 2 hang? (y/n): ")
+
+if blue1_hang == "y" or blue1_hang == "Y":
+    blue_score = blue_score + 10
+
+if blue2_hang == "y" or blue2_hang == "Y":
+    blue_score = blue_score + 10
+
+if red1_hang == "y" or red1_hang == "Y":
+    red_score = red_score + 10
+
+if red2_hang == "y" or red2_hang == "Y":
+    red_score = red_score + 10
+
+blue_penalty = int(input("How many penalties did the blue alliance have? "))
+red_penalty = int(input("How many penalties did the red alliance have? "))
+
+blue_score = blue_score + (red_penalty * 4)
+red_score = red_score + (blue_penalty * 4)
+
+print("The blue alliance scored:", blue_score, "points.")
+print("The red alliance scored:", red_score, "points.")
